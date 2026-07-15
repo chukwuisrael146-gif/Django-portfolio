@@ -1,0 +1,20 @@
+/* ===========================
+   Film Grain / Noise Texture
+=========================== */
+
+.hero-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    background-image:
+        radial-gradient(rgba(255,255,255,.035) 0.7px, transparent 0.7px);
+
+    background-size: 4px 4px;
+
+    opacity: .18;
+
+    mix-blend-mode: soft-light;
+}

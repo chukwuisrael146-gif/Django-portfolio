@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<section id="home" data-aos="fade-up" data-aos-duration="1000"
+    class="hero-noise relative min-h-screen overflow-hidden ">
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <!-- Orange Glow -->
+    <div class="absolute -top-40 -left-40 h-[650px] w-[650px] rounded-full bg-orange-500/10 blur-[180px]">
+    </div>
+
+    <!-- Blue Glow -->
+    <div class="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-sky-500/10 blur-[200px]">
+    </div>
+
+    <!-- White Center Glow -->
+    <div
+        class="absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[180px]">
+    </div>
+
+    <!-- ================= DOTTED GRID ================= -->
+
+    <div class="absolute inset-0 opacity-40" style="
+            background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
+            background-size: 30px 30px;
+        ">
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#17181c]/30 to-[#17181c]">
+    </div>
+
+    <!-- ================= HERO CONTENT ================= -->
+
+    <div class="relative z-10 min-h-screen max-w-7xl mx-auto px-6 lg:px-10">
+
+        <!-- Hero Content Goes Here -->
+        <div class="relative z-10">
+
+            <div class="grid min-h-screen items-center gap-20 py-32 lg:grid-cols-[1.2fr_.8fr]">
+
+                <!-- ================= LEFT SIDE ================= -->
+
+                <div data-aos="fade-right" data-aos-duration="1000">
+
+                    <!-- Availability Badge -->
+
+                    <div
+                        class="inline-flex items-center gap-3 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2">
+
+                        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse">
+                        </span>
+
+                        <span class="text-sm tracking-wider text-emerald-300">
+
+                            AVAILABLE FOR WORK
+
+                        </span>
+
+                    </div>
+
+                    <!-- Headline -->
+
+                    <h1 class="mt-10 text-6xl font-black leading-none md:text-7xl xl:text-8xl">
+
+                        BUILDING
+
+                        <br>
+
+                        <span class="text-white/90">
+
+                            DIGITAL
+
+                        </span>
+
+                        <br>
+
+                        <span class="text-orange-500">
+
+                            EXPERIENCES
+
+                        </span>
+
+                    </h1>
+
+                    <!-- Description -->
+
+                    <p class="text-xl text-gray-300">
+
+                        <span id="typing-text"></span>
+
+                        <span class="animate-pulse text-orange-500">
+
+                            |
+
+                        </span>
+
+                    </p>
+
+                    <p class="mt-10 max-w-xl text-lg leading-9 text-gray-400">
+
+                        I'm
+
+                        <span class="font-semibold text-white">
+
+                            Israel Chukwu
+
+                        </span>
+
+                        — a Full Stack Developer focused on crafting
+                        scalable web applications with Django, React,
+                        PostgreSQL and modern web technologies.
+
+                    </p>
+
+
+                </div>
+
+                <!-- ================= RIGHT SIDE ================= -->
+
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative flex items-center justify-center">
+
+                    <!-- Background Glow -->
+                    <div class="absolute h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-[120px]">
+                    </div>
+
+                    <!-- Portrait Container -->
+                    <div
+                        class="relative overflow-hidden rounded-[2rem] h-[560px] w-[500px] border border-white/10 bg-white/5 p-3 backdrop-blur-xl shadow-[0_25px_80px_rgba(0,0,0,.45)]">
+
+                        <img src="{% static 'images/profile.png' %}" alt="Israel Chukwu"
+                            class="h-[560px] w-[700px] rounded-[1.5rem] object-cover">
+
+                    </div>
+
+                    <!-- Experience Card -->
+                    <div data-aos="fade-left" data-aos-duration="1000"
+                        class="absolute -left-6 top-20 rounded-2xl border border-white/10 bg-white/10 px-6 py-4 backdrop-blur-xl shadow-xl">
+
+                        <p class="text-3xl font-bold text-orange-400">
+
+                            3+
+
+                        </p>
+
+                        <p class="text-sm text-black">
+
+                            Years Experience
+
+                        </p>
+
+                    </div>
+
+                    <!-- Projects Card -->
+                    <div data-aos="fade-right" data-aos-duration="1000"
+                        class="absolute -right-8 bottom-32 rounded-2xl border border-white/10 bg-white/10 px-6 py-4 backdrop-blur-xl shadow-xl">
+
+                        <p class="text-3xl font-bold text-orange-400">
+
+                            7+
+
+                        </p>
+
+                        <p class="text-sm text-gray-300">
+
+                            Completed Projects
+
+                        </p>
+
+                    </div>
+
+                    <!-- Tech Stack Card -->
+                    <div
+                        class="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-white/10 px-6 py-3 backdrop-blur-xl shadow-xl">
+
+                        <p data-aos="fade-left" class="text-sm tracking-wider text-white">
+
+                            Django • React • PostgreSQL
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================== -->
+<!--               TECH STACK                   -->
+<!-- ========================================== -->
+
+<section data-aos="fade-up" data-aos-duration="1000" class="relative overflow-hidden py-32">
+
+    <!-- Background Glow -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+
+        <div
+            class="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/5 blur-[180px]">
+        </div>
+
+    </div>
+
+    <div data-aos="fade-right" data-aos-duration="1000" class="max-w-7xl mx-auto px-6 lg:px-10 mb-20">
+
+        <p class="uppercase tracking-[0.35em] text-orange-400 text-sm">
+
+            MY STACK
+
+        </p>
+
+        <h2 class="mt-5 text-5xl md:text-6xl font-bold leading-tight">
+
+            Technologies <br>
+
+            I Build With
+
+        </h2>
+
+    </div>
+
+    <!-- Row One -->
+
+    <div class="marquee">
+
+        <div class="marquee-track">
+
+            {% include "includes/tech_cards.html" %}
+
+            {% include "includes/tech_cards.html" %}
+
+        </div>
+
+    </div>
+
+    <!-- Row Two -->
+
+    <div class="marquee reverse mt-8">
+
+        <div class="marquee-track">
+
+            {% include "includes/tech_cards_two.html" %}
+
+            {% include "includes/tech_cards_two.html" %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% include "includes/about/about_preview.html" %}
+
+{% endblock %}

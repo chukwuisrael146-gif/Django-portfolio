@@ -1,0 +1,162 @@
+{% load static %}
+
+<section
+    id="about-hero"
+    class="relative min-h-screen overflow-hidden flex items-center">
+
+    <!-- Background Typography -->
+
+    <h1
+        class="pointer-events-none
+        absolute
+        left-1/2
+        top-1/2
+        -translate-x-1/2
+        -translate-y-1/2
+        text-[10rem]
+        md:text-[16rem]
+        font-black
+        uppercase
+        leading-none
+        text-white/[0.02]
+        select-none">
+
+        WHO<br>I<br>AM
+
+    </h1>
+
+    <!-- Orange Glow -->
+
+    <div
+        class="absolute
+        right-0
+        top-1/2
+        h-[650px]
+        w-[650px]
+        -translate-y-1/2
+        rounded-full
+        bg-orange-500/10
+        blur-[180px]">
+    </div>
+
+    <!-- Container -->
+
+    <div
+        class="relative
+        z-10
+        mx-auto
+        grid
+        max-w-7xl
+        gap-20
+        px-6
+        lg:grid-cols-2
+        lg:px-10">
+
+        <!-- LEFT -->
+
+        <div
+            data-aos="fade-right"
+            class="flex flex-col justify-center">
+
+            <p
+                class="section-label">
+
+                ABOUT ME
+
+            </p>
+
+            <h2
+                class="section-title mt-8">
+
+                Building software
+
+                <br>
+
+                with purpose
+
+                <br>
+
+                and precision.
+
+            </h2>
+
+            <p
+                class="section-text mt-10 max-w-xl">
+
+                I believe software is more than writing code.
+                It's about solving problems, creating intuitive
+                experiences, and building products that people
+                genuinely enjoy using.
+
+            </p>
+
+            <!-- Buttons -->
+
+            <div
+                class="mt-12 flex flex-wrap gap-6">
+
+                <a
+                    href="#"
+                    class="glass-card px-8 py-4">
+
+                    Download CV
+
+                </a>
+
+                <a
+                    href="#"
+                    class="border border-white/20
+                    rounded-full
+                    px-8
+                    py-4
+                    transition
+                    hover:border-orange-400
+                    hover:text-orange-400">
+
+                    View Projects
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        {% include "includes/about/hero_profile.html" %}
+
+    </div>
+
+    <!-- Scroll Indicator -->
+
+    <div
+        class="absolute
+        bottom-10
+        left-1/2
+        -translate-x-1/2
+        flex
+        flex-col
+        items-center
+        gap-3">
+
+        <span
+            class="text-xs
+            uppercase
+            tracking-[0.35em]
+            text-gray-500">
+
+            Scroll
+
+        </span>
+
+        <div
+            class="h-12
+            w-px
+            bg-gradient-to-b
+            from-orange-400
+            to-transparent">
+        </div>
+
+    </div>
+
+</section>

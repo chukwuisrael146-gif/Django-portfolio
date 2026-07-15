@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+
+{% block title %}
+Skills
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="bg-gradient-to-br from-[#17181c] via-[#1b1d21] to-black py-28">
+
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <p class="uppercase tracking-[8px] text-orange-500 font-semibold">
+            MY EXPERTISE
+        </p>
+
+        <h1 class="text-6xl font-black mt-6 text-white">
+            Technologies I Use
+        </h1>
+
+        <p class="text-gray-400 mt-8 text-xl leading-9 max-w-3xl mx-auto">
+
+            I specialize in designing and developing scalable web
+            applications with modern technologies, focusing on performance,
+            clean architecture, and exceptional user experiences.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= SKILLS ================= -->
+
+<section class="bg-[#101114] py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+
+            {% for skill in skills %}
+
+            <div
+                class="group relative rounded-3xl overflow-hidden bg-[#1b1d21] border border-gray-800 hover:border-orange-500 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(249,115,22,.25)]">
+
+                <!-- Top Glow -->
+
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600">
+                </div>
+
+                <!-- Card Content -->
+
+                <div class="p-8">
+
+                    <!-- Featured -->
+
+                    {% if skill.featured %}
+
+                    <span
+                        class="inline-flex items-center gap-2 bg-orange-500 text-white text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+
+                        ★ Featured
+
+                    </span>
+
+                    {% endif %}
+
+                    <!-- Logo -->
+
+                    <div
+                        class="w-24 h-24 rounded-2xl bg-[#2a2c31] flex items-center justify-center">
+
+                        <img
+                            src="{{ skill.image.url }}"
+                            alt="{{ skill.title }}"
+                            class="w-16 h-16 object-contain group-hover:scale-110 transition duration-500">
+
+                    </div>
+
+                    <!-- Title -->
+
+                    <h2 class="text-3xl font-bold mt-8 text-white">
+
+                        {{ skill.title }}
+
+                    </h2>
+
+                    <!-- Description -->
+
+                    <p class="text-gray-400 leading-8 mt-5">
+
+                        {{ skill.description }}
+
+                    </p>
+
+                    <!-- Skill Level -->
+
+                    <div class="mt-8 flex justify-between items-center">
+
+                        <span
+                            class="px-4 py-2 rounded-full text-sm bg-[#2a2c31] text-orange-400">
+
+                            {{ skill.level }}
+
+                        </span>
+
+                        <span
+                            class="text-2xl font-black text-orange-500">
+
+                            {{ skill.percentage }}%
+
+                        </span>
+
+                    </div>
+
+                    <!-- Progress -->
+
+                    <div
+                        class="mt-5 w-full bg-[#2a2c31] rounded-full h-3 overflow-hidden">
+
+                        <div
+                            class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 h-full rounded-full transition-all duration-1000"
+                            style="width: {{ skill.percentage }}%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-span-full">
+
+                <div
+                    class="bg-[#1b1d21] rounded-3xl p-20 text-center border border-dashed border-gray-700">
+
+                    <h2 class="text-4xl font-bold text-white">
+
+                        No Skills Added Yet
+
+                    </h2>
+
+                    <p class="text-gray-400 mt-6 text-lg">
+
+                        Go to the Django Admin Dashboard and upload your
+                        first skill.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TECHNOLOGY SUMMARY ================= -->
+
+<section class="bg-[#17181c] py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div
+            class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl p-14">
+
+            <div
+                class="grid lg:grid-cols-2 gap-10 items-center">
+
+                <div>
+
+                    <h2 class="text-5xl font-black text-white">
+
+                        Always Learning,
+                        Always Improving.
+
+                    </h2>
+
+                    <p class="text-orange-100 mt-8 leading-8 text-lg">
+
+                        Technology evolves every day, and I enjoy learning
+                        new tools and best practices to build faster,
+                        cleaner, and more scalable applications.
+
+                    </p>
+
+                </div>
+
+                <div
+                    class="grid grid-cols-2 gap-5">
+
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur">
+
+                        <h3 class="text-5xl font-black text-white">
+
+                            {{ skills|length }}
+
+                        </h3>
+
+                        <p class="mt-3 text-orange-100">
+
+                            Technologies
+
+                        </p>
+
+                    </div>
+
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur">
+
+                        <h3 class="text-5xl font-black text-white">
+
+                            {{ featured_skills }}
+
+                        </h3>
+
+                        <p class="mt-3 text-orange-100">
+
+                            Featured Skills
+
+                        </p>
+
+                    </div>
+
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur">
+
+                        <h3 class="text-5xl font-black text-white">
+
+                            {{ average_skill }}%
+
+                        </h3>
+
+                        <p class="mt-3 text-orange-100">
+
+                            Average Proficiency
+
+                        </p>
+
+                    </div>
+
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur">
+
+                        <h3 class="text-5xl font-black text-white">
+
+                            100%
+
+                        </h3>
+
+                        <p class="mt-3 text-orange-100">
+
+                            Passion
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>  
+
+{% endblock %}

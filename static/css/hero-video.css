@@ -1,0 +1,38 @@
+#hero-video {
+
+    animation:
+        cinematicZoom 40s ease-in-out infinite;
+
+    transition:opacity 1.8s ease;
+
+    will-change:transform;
+
+}
+
+@keyframes cinematicZoom{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+#intro-screen{
+
+    opacity:1;
+
+}

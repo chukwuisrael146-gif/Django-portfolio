@@ -1,0 +1,94 @@
+<header 
+
+    id="navbar"
+    class="fixed top-6 left-0 right-0 z-50 px-4 md:px-8
+        rounded-2xl mx-auto max-w-7xl h-20
+        ">
+
+    <nav id="navbar" class="relative mx-auto max-w-7xl h-20
+                left-0 right-0 z-50
+               rounded-2xl
+               ring-1 ring-white/10
+               bg-white/5
+               backdrop-blur-3xl
+               shadow-[0_20px_60px_rgba(0,0,0,.35)]
+               flex items-center justify-between
+               px-8">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+        <!-- Logo -->
+        <a href="{% url 'home' %}" class="text-3xl font-bold tracking-wide">
+
+            <span class="transition duration-300 group-hover:text-orange-500">
+
+                Israel
+
+            </span>
+
+        </a>
+        <!-- Navigation -->
+        <div class="hidden lg:flex items-center gap-10">
+
+            <a href="{% url 'home' %}" class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                Home
+            </a>
+
+            <a href="{% url 'about:about' %}" class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                About
+            </a>
+
+            <a href="{% url 'skills' %}" 
+            class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                Skills
+            </a>
+
+            <a href="#"
+                class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                Projects
+            </a>
+
+            <a href="#"
+                class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                Blog
+            </a>
+
+            <a href="#"
+                class="transition-all duration-300 hover:-translate-y-1 hover:text-orange-400">
+                Contact
+            </a>
+
+        </div>
+
+        <!-- Hire Me -->
+        <a href="#" class="hidden lg:flex
+                   items-center
+                   rounded-full
+                   bg-gradient-to-r from-orange-500 to-orange-600
+                   hover:scale-105
+                    hover:shadow-xl
+                    hover:shadow-orange-500/30
+                    transition-all
+                    duration-300
+                   px-6
+                   py-3
+                   font-semibold
+                   transition
+                   duration-300
+                   hover:scale-105
+                   hover:bg-orange-600">
+
+            Hire Me
+
+        </a>
+
+        <!-- Mobile Menu -->
+        <button 
+        id="open-menu"
+        class="lg:hidden text-2xl">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </nav>
+
+</header>
