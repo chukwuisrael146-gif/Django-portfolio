@@ -1,0 +1,56 @@
+<div class="timeline-item relative mb-32 flex items-center {% if side == 'right' %}justify-end{% endif %}">
+
+    <!-- Card -->
+
+    <div class="w-full lg:w-[46%]">
+
+        <div
+            class="glass-card rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/40">
+
+            <div class="flex items-center gap-4">
+
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 text-orange-400">
+
+                    <i class="{{ icon }}"></i>
+
+                </div>
+
+                <span class="text-orange-400 font-semibold">
+
+                    {{ year }}
+
+                </span>
+
+            </div>
+
+            <h3 class="mt-6 text-2xl font-bold">
+
+                {{ title }}
+
+            </h3>
+
+            <p class="mt-4 leading-8 text-gray-400">
+
+                {{ description }}
+
+            </p>
+
+            <span
+                class="mt-6 inline-block rounded-full border border-orange-500/20 bg-orange-500/10 px-4 py-2 text-sm text-orange-300">
+
+                {{ tech }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Center Dot -->
+
+    <div
+        class="dot absolute left-1/2 top-1/2 z-20 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-[#17181c] bg-white">
+    </div>
+
+</div>

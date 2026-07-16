@@ -53,3 +53,25 @@
     animation:pulseGlow 3s infinite;
 
 }
+
+@keyframes floating {
+
+    0%{
+        transform:rotate(-6deg) translateY(0px);
+    }
+
+    50%{
+        transform:rotate(-6deg) translateY(-12px);
+    }
+
+    100%{
+        transform:rotate(-6deg) translateY(0px);
+    }
+
+}
+
+.float-image{
+
+    animation:floating 6s ease-in-out infinite;
+
+}

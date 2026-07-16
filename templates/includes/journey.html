@@ -1,0 +1,136 @@
+{% load static %}
+
+<section id="journey" class="relative overflow-hidden py-40 ">
+
+    <!-- Background Typography -->
+
+    <h2 class="pointer-events-none
+        absolute
+        left-1/2
+        top-20
+        -translate-x-1/2
+        text-[8rem]
+        md:text-[14rem]
+        font-black
+        uppercase
+        tracking-tight
+        text-white/[0.02]
+        select-none">
+
+        JOURNEY
+
+    </h2>
+
+    <!-- Orange Glow -->
+
+    <div class="absolute
+        left-1/2
+        top-1/2
+        h-[500px]
+        w-[500px]
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        bg-orange-500/10
+        blur-[180px]">
+    </div>
+
+    <!-- Grid Background -->
+
+    <div class="absolute inset-0
+        bg-[radial-gradient(circle,rgba(255,255,255,.1)_1px,transparent_1px)]
+        [background-size:28px_28px]
+        opacity-30">
+    </div>
+
+    <!-- Content -->
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+
+        <!-- Heading -->
+
+        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+
+            <span class="inline-block
+                rounded-full
+                border
+                border-orange-500/30
+                bg-orange-500/10
+                px-5
+                py-2
+                text-xs
+                font-semibold
+                uppercase
+                tracking-[0.35em]
+                text-orange-400">
+
+                Chapter 02
+
+            </span>
+
+            <h2 class="mt-8
+                text-5xl
+                lg:text-7xl
+                font-black
+                leading-tight">
+
+                My Development Journey
+
+            </h2>
+
+            <p class="mt-8
+                text-lg
+                leading-8
+                text-gray-400">
+
+                Every project, every challenge, and every late-night debugging
+                session has shaped the developer I am today.
+
+            </p>
+
+        </div>
+
+        <!-- Timeline Container -->
+
+        <div class="mt-32
+            grid
+            lg:grid-cols-[1fr_380px]
+            gap-24">
+
+            <!-- Timeline -->
+
+            <div id="timeline-container" class="relative">
+
+                <!-- Center Line -->
+                <div class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/10">
+                </div>
+
+                <!-- Animated Line -->
+                <div id="timeline-progress" class="absolute left-1/2 top-0 w-px -translate-x-1/2 bg-orange-500"
+                    style="height:0;">
+                </div>
+
+                {% include "includes/timeline_item.html" with side="left" year="2022" icon="fa-solid fa-code" title="Started Programming" description="Discovered Python and began building small console applications." tech="Python" %}
+
+                {% include "includes/timeline_item.html" with side="right" year="2023" icon="fa-solid fa-server" title="Learning Django" description="Started building dynamic web applications with Django and SQLite." tech="Django" %}
+
+                {% include "includes/timeline_item.html" with side="left" year="2024" icon="fa-solid fa-laptop-code" title="Building Real Projects" description="Developed portfolio websites, management systems, and client projects." tech="Full Stack" %}
+
+                {% include "includes/timeline_item.html" with side="right" year="2025" icon="fa-solid fa-layer-group" title="Modern Web Development" description="Focused on scalable architecture, Tailwind CSS, animations, and reusable components." tech="Django + Tailwind" %}
+
+                {% include "includes/timeline_item.html" with side="left" year="NEXT" icon="fa-solid fa-rocket" title="What's Next?" description="Continuously learning, building larger systems, and creating impactful software." tech="Always Learning" %}
+
+            </div>
+
+            <!-- Sticky Card -->
+
+            <aside id="focus-card" class="hidden lg:block sticky top-40 h-fit">
+
+                {% include "includes/current_focus.html" %}
+
+            </aside>
+        </div>
+
+    </div>
+
+</section>

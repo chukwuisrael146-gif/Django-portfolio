@@ -1,6 +1,7 @@
 from django.contrib import admin
 from . models import (
     Biography,
+    BiographyImage,
     Journey,
     Experience,
     Education,
@@ -8,7 +9,7 @@ from . models import (
     Technology,
     TechnologyCategory,
     FunFact,
-    SocialLink
+    SocialLink,
 )
 
 # Register your models here.

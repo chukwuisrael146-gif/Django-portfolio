@@ -1,5 +1,130 @@
-<section id="biography" class="py-40">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <h2 class="text-5xl font-bold">Biography</h2>
+<section id="biography" class="relative py-40 overflow-hidden ">
+
+    <!-- Background Word -->
+
+    <h2 class="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2
+        text-[10rem] lg:text-[14rem] font-black uppercase
+        text-white/[0.02]">
+
+        ABOUT
+
+    </h2>
+
+    <!-- Orange Glow -->
+
+    <div class="absolute right-0 top-1/2 h-[450px] w-[450px]
+        rounded-full bg-orange-500/10 blur-[180px]">
     </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+
+        <!-- Chapter -->
+
+        <div class="mb-20">
+
+            <span class="inline-flex items-center rounded-full
+                border border-orange-500/30
+                bg-orange-500/10
+                px-5 py-2
+                text-xs
+                uppercase
+                tracking-[0.35em]
+                text-orange-400">
+
+                Chapter 01
+
+            </span>
+
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-20 items-start">
+
+            <!-- Left -->
+
+            <div>
+
+                <h2 class="text-5xl lg:text-7xl font-black leading-tight">
+
+                    {{ biography.heading|default:"Who I Am" }}
+
+                </h2>
+
+                <p class="mt-8 text-xl leading-9 text-orange-400">
+
+                    {{ biography.subtitle|default:"Full Stack Developer" }}
+
+                </p>
+
+                {% if biography.profile_image %}
+                <div class="float-image" class=" mt-2 relative flex justify-center lg:justify-start">
+
+                    <!-- Glow -->
+                    <div class="absolute h-[320px] w-[320px] rounded-full bg-orange-500/15 blur-[120px]"></div>
+
+                    <!-- Image -->
+                    <div class="relative
+                            w-[260px]
+                            lg:w-[320px]
+                            rotate-[-6deg]
+                            overflow-hidden
+                            rounded-3xl
+                            border border-white/10
+                            bg-[#1b1c20]
+                            shadow-2xl
+                            transition-all
+                            duration-500
+                            hover:rotate-0
+                            hover:scale-105">
+
+                        <img src="{{ biography.profile_image.url }}" alt="{{ biography.heading }}"
+                            class="h-full w-full object-cover">
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            <!-- Right -->
+
+            <div
+                class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/40 hover:shadow-[0_0_60px_rgba(249,115,22,0.15)]">
+
+                <!-- Glow Effect -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                </div>
+
+                <!-- Top Accent Line -->
+                <div class="absolute left-0 top-0 h-1 w-0 bg-orange-500 transition-all duration-500 group-hover:w-full">
+                </div>
+
+                <!-- Quote Icon -->
+                <div
+                    class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500/10 text-2xl text-orange-400 transition-all duration-500 group-hover:rotate-12 group-hover:bg-orange-500/20">
+
+                    <i class="fa-solid fa-quote-left"></i>
+
+                </div>
+
+                <div
+                    class="absolute -left-full top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-700 group-hover:left-[140%]">
+                </div>
+
+                <!-- Biography -->
+                <p
+                    class="relative z-10 text-lg leading-9 text-gray-400 transition-colors duration-500 group-hover:text-gray-200">
+
+                    {{ biography.biography|default:"Biography coming soon..." }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>

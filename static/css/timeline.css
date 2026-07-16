@@ -1,0 +1,43 @@
+.timeline-item{
+
+opacity:0;
+
+transform:translateY(80px);
+
+transition:.8s ease;
+
+}
+
+.timeline-item.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.timeline-item .dot{
+
+transition:.4s;
+
+background:#555;
+
+}
+
+.timeline-item.active .dot{
+
+background:#f97316;
+
+box-shadow:
+
+0 0 20px #f97316,
+
+0 0 40px #f97316;
+
+}
+
+#timeline-progress{
+
+transition:height .2s linear;
+
+}
