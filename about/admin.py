@@ -33,6 +33,7 @@ class JourneyAdmin(admin.ModelAdmin):
         'year',
         'title',
         'order',
+        'icon',
     )
     
     ordering = ('order',)

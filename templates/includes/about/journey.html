@@ -1,5 +1,316 @@
-<section id="journey" class="py-40">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <h2 class="text-5xl font-bold">Journey</h2>
+<section id="journey" class="relative py-40 overflow-hidden">
+
+    <!-- Background Word -->
+
+    <h2 class="pointer-events-none
+        absolute
+        left-1/2
+        top-10
+        -translate-x-1/2
+        text-[10rem]
+        md:text-[15rem]
+        font-black
+        uppercase
+        text-white/[0.02]">
+
+        PATH
+
+    </h2>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+        <!-- Heading -->
+
+        <div class="text-center max-w-3xl mx-auto mb-24">
+
+            <p class="uppercase tracking-[6px]
+                text-orange-500
+                font-semibold">
+
+                Chapter 02
+
+            </p>
+
+            <h2 class="text-5xl
+                lg:text-6xl
+                font-black
+                mt-6">
+
+                My Journey
+
+            </h2>
+
+            <p class="text-gray-400
+                mt-8
+                leading-8">
+
+                Every milestone has shaped my growth as a developer.
+                From writing my first Python script to building
+                scalable Django applications.
+
+            </p>
+
+        </div>
+
+        <!-- Timeline -->
+        <div class="journey relative">
+
+            {% for item in journey %}
+
+            <div class="journey-item {% cycle 'left' 'right' %}">
+
+                <!-- Timeline Node -->
+                <div class="timeline-node">
+
+                    <span class="pulse"></span>
+
+                    <span
+                        class="dot flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 shadow-[0_0_25px_rgba(249,115,22,.6)]">
+
+                        <i class="{{ item.icon }} text-[10px] text-white"></i>
+
+                    </span>
+
+                </div>
+
+                <!-- Card -->
+                <div class="journey-card
+        group
+        relative
+        overflow-hidden
+        rounded-[32px]
+        border
+        border-white/10
+        bg-white/5
+        backdrop-blur-2xl
+        p-8
+        lg:p-10
+        transition-all
+        duration-700
+        hover:-translate-y-4
+        hover:scale-[1.02]
+        hover:border-orange-500/50
+        hover:shadow-[0_30px_70px_rgba(249,115,22,.18)]">
+
+                    <!-- Orange Accent -->
+
+                    <div class="absolute
+            left-0
+            top-0
+            h-full
+            w-1
+            bg-gradient-to-b
+            from-orange-400
+            via-orange-500
+            to-transparent">
+                    </div>
+
+                    <!-- Glow -->
+
+                    <div class="absolute
+            -right-24
+            -top-24
+            h-56
+            w-56
+            rounded-full
+            bg-orange-500/10
+            blur-[120px]
+            opacity-0
+            transition
+            duration-700
+            group-hover:opacity-100">
+                    </div>
+
+                    <!-- Background Year -->
+
+                    <h2 class="pointer-events-none
+            absolute
+            bottom-0
+            right-4
+            text-[8rem]
+            font-black
+            leading-none
+            text-white/[0.025]
+            select-none">
+
+                        {{ item.year }}
+
+                    </h2>
+
+                    <!-- ===================== -->
+                    <!-- Editorial Header -->
+                    <!-- ===================== -->
+
+                    <div class="relative z-10">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="h-px flex-1 bg-gradient-to-r from-orange-500 to-transparent">
+                            </div>
+
+                            <span class="text-[10px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.5em]
+                    text-orange-400">
+
+                                Chapter {{ forloop.counter|stringformat:"02d" }}
+
+                            </span>
+
+                            <div class="h-px flex-1 bg-gradient-to-l from-orange-500 to-transparent">
+                            </div>
+
+                        </div>
+
+                        <!-- Year -->
+
+                        <h4 class="mt-8
+                text-6xl
+                font-black
+                tracking-tight
+                text-white">
+
+                            {{ item.year }}
+
+                        </h4>
+
+                        <!-- Accent Line -->
+
+                        <div class="mt-5
+                h-[3px]
+                w-20
+                rounded-full
+                bg-gradient-to-r
+                from-orange-500
+                via-orange-400
+                to-transparent
+                transition-all
+                duration-700
+                group-hover:w-40">
+                        </div>
+
+                        <!-- Title -->
+
+                        <h3 class="mt-8
+                text-3xl
+                lg:text-4xl
+                font-bold
+                leading-tight
+                tracking-tight
+                text-white
+                transition-all
+                duration-500
+                group-hover:text-orange-400">
+
+                            {{ item.title }}
+
+                        </h3>
+
+                    </div>
+
+                    <!-- Quote -->
+
+                    <blockquote class="mt-8
+            border-l-2
+            border-orange-500
+            pl-5
+            italic
+            text-gray-300">
+
+                        "{{ item.quote }}"
+
+                    </blockquote>
+
+                    <!-- Description -->
+
+                    <p class="mt-8
+            text-[17px]
+            leading-9
+            text-gray-400">
+
+                        {{ item.description }}
+
+                    </p>
+
+                    <!-- Footer -->
+
+                    <div class="mt-10
+            flex
+            items-center
+            justify-between
+            border-t
+            border-white/10
+            pt-6">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-orange-500/20
+                    bg-orange-500/10
+                    text-orange-400
+                    transition-all
+                    duration-500
+                    group-hover:rotate-12
+                    group-hover:scale-110">
+
+                                <i class="{{ item.icon }} text-lg"></i>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-[10px]
+                        uppercase
+                        tracking-[0.4em]
+                        text-gray-500">
+
+                                    Career Milestone
+
+                                </p>
+
+                                <p class="mt-1
+                        text-sm
+                        font-medium
+                        text-white">
+
+                                    Developer Journey
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="text-right">
+
+                            <span class="block
+                    text-5xl
+                    font-black
+                    leading-none
+                    text-white/5">
+
+                                {{ forloop.counter|stringformat:"02d" }}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+
     </div>
+
 </section>

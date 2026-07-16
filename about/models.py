@@ -64,6 +64,12 @@ class Journey(models.Model):
     title = models.CharField(max_length=100)
 
     description = models.TextField()
+    
+    icon = models.CharField(
+    max_length=50,
+    default="fa-solid fa-code",
+    help_text="Font Awesome icon class"
+    )
 
     order = models.PositiveIntegerField(default=0)
 
