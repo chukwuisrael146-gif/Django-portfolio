@@ -952,6 +952,10 @@ body {
   right: 1rem;
 }
 
+.right-6 {
+  right: 1.5rem;
+}
+
 .right-8 {
   right: 2rem;
 }
@@ -982,6 +986,10 @@ body {
 
 .top-32 {
   top: 8rem;
+}
+
+.top-4 {
+  top: 1rem;
 }
 
 .top-40 {
@@ -1247,12 +1255,20 @@ body {
   height: 100vh;
 }
 
+.min-h-\[200px\] {
+  min-height: 200px;
+}
+
 .min-h-\[220px\] {
   min-height: 220px;
 }
 
 .min-h-\[360px\] {
   min-height: 360px;
+}
+
+.min-h-\[420px\] {
+  min-height: 420px;
 }
 
 .min-h-screen {
@@ -2253,6 +2269,10 @@ body {
   color: rgb(255 255 255 / 0.02);
 }
 
+.text-white\/\[0\.04\] {
+  color: rgb(255 255 255 / 0.04);
+}
+
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
@@ -2749,8 +2769,16 @@ body {
     grid-column: span 3 / span 3;
   }
 
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
   .lg\:col-span-6 {
     grid-column: span 6 / span 6;
+  }
+
+  .lg\:row-span-2 {
+    grid-row: span 2 / span 2;
   }
 
   .lg\:mb-32 {

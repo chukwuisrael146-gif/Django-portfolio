@@ -1,0 +1,129 @@
+.fun-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 35px;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(24px);
+
+    transition:
+
+        transform .5s,
+
+        border-color .5s,
+
+        box-shadow .5s,
+
+        opacity .6s;
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+}
+
+.fun-card.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.fun-card:hover {
+
+    transform:
+
+        translateY(-12px) rotate(.5deg);
+
+    border-color: #f97316;
+
+    box-shadow:
+
+        0 35px 80px rgba(249, 115, 22, .18);
+
+}
+
+.fun-glow {
+
+    position: absolute;
+
+    top: -120px;
+
+    right: -120px;
+
+    width: 260px;
+
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(circle,
+
+            rgba(249, 115, 22, .25),
+
+            transparent 70%);
+
+    opacity: 0;
+
+    transition: .5s;
+
+}
+
+.fun-card:hover .fun-glow {
+
+    opacity: 1;
+
+}
+
+.icon-box {
+
+    transition: .5s;
+
+}
+
+.fun-card:hover .icon-box {
+
+    transform:
+
+        rotate(10deg) scale(1.12);
+
+    background: rgba(249, 115, 22, .18);
+
+}
+
+.fun-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 35px;
+
+    bottom: 95px;
+
+    width: 0;
+
+    height: 3px;
+
+    background: #f97316;
+
+    transition: .5s;
+
+}
+
+.fun-card:hover::before {
+
+    width: 90px;
+
+}
