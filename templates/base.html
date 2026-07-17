@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
     <link rel="stylesheet" href="{% static 'css/journey.css' %}">
+    <link rel="stylesheet" href="{% static 'css/experience.css' %}">
 
     {% tailwind_css %}
 </head>
@@ -46,7 +47,7 @@
 
     {% include "includes/navbar.html" %}
 
-    <main class="relative z-10 pt-40">
+    <main class="relative z-10 pt-28 md:pt-40">
 
         {% block content %}
 
@@ -93,6 +94,8 @@
     <script defer src="{% static 'js/animations.js' %}"></script>
 
     <script defer src="{% static 'js/aos.js' %}"></script>
+
+    <script defer src="{% static 'js/experience.js' %}"></script>
 
 
     {% block scripts %}

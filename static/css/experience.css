@@ -1,0 +1,61 @@
+.experience-stack {
+    position: relative;
+}
+
+.experience-card {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    transition: .6s;
+}
+
+.experience-card .group {
+    width: 100%;
+    transform: scale(.96);
+    opacity: .45;
+    filter: blur(2px);
+    transition:
+        transform .6s,
+        opacity .6s,
+        filter .6s,
+        box-shadow .6s;
+}
+
+.experience-card.is-active .group {
+    transform: scale(1);
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 35px 90px rgba(249, 115, 22, .18);
+}
+
+/* Glow lights up on the active card (and on hover, via Tailwind). */
+.experience-card.is-active .experience-glow {
+    opacity: 1;
+}
+
+.progress-dot {
+    position: relative;
+}
+
+.progress-dot.active {
+    background: #f97316;
+    color: white;
+    transform: scale(1.15);
+    border-color: #f97316;
+    box-shadow: 0 0 25px rgba(249, 115, 22, .6);
+}
+
+.progress-dot::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: rgba(255, 255, 255, .08);
+    transform: translateX(-50%);
+}
+
+.progress-dot:last-child::after {
+    display: none;
+}

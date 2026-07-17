@@ -120,3 +120,35 @@
     text-transform: uppercase;
 
 }
+
+/* ==========================
+   Mobile: single-column, left-aligned
+============================= */
+
+@media (max-width: 767px) {
+
+    .journey::before {
+
+        left: 9px;
+
+        transform: none;
+    }
+
+    .journey-item {
+
+        width: 100%;
+
+        left: 0 !important;
+
+        padding: 24px 0 24px 36px;
+
+        text-align: left;
+    }
+
+    .journey-item::before {
+
+        left: 1px;
+
+        right: auto;
+    }
+}

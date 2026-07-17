@@ -1,5 +1,124 @@
-<section id="experience" class="py-40">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <h2 class="text-5xl font-bold">Experience</h2>
+<section id="experience" class="relative py-40">
+
+    <!-- Background Word -->
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden z-0">
+
+        <h2 class="absolute
+            left-1/2
+            top-10
+            -translate-x-1/2
+            text-[10rem]
+            md:text-[15rem]
+            font-black
+            uppercase
+            text-white/[0.02]">
+
+            WORK
+
+        </h2>
+
     </div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+
+        <!-- Heading -->
+
+        <div class="mx-auto mb-32 max-w-3xl text-center">
+
+            <p class="font-semibold
+                uppercase
+                tracking-[6px]
+                text-orange-500">
+
+                Chapter 03
+
+            </p>
+
+            <h2 class="mt-6
+                text-5xl
+                font-black
+                lg:text-6xl">
+
+                Experience
+
+            </h2>
+
+            <p class="mt-8
+                leading-8
+                text-gray-400">
+
+                Every opportunity has expanded my technical expertise,
+                strengthened my problem-solving skills, and contributed
+                to the developer I am today.
+
+            </p>
+
+        </div>
+
+        <!-- Sticky Stack -->
+
+        <div class="experience-stack ml-0 lg:ml-28">
+
+            <div>
+
+            </div>
+
+            <!-- Progress Rail -->
+
+            <div class="hidden lg:block
+    absolute
+    left-0
+    top-0
+    h-full
+    w-16">
+
+                <div class="sticky
+        top-1/2
+        -translate-y-1/2
+        flex
+        flex-col
+        items-center
+        gap-8">
+
+                    {% for experience in experiences %}
+
+                    <div class="progress-dot
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-white/10
+            bg-white/5
+            text-xs
+            font-bold
+            text-gray-500
+            transition-all
+            duration-500" data-progress="{{ forloop.counter0 }}">
+
+                        {{ forloop.counter|stringformat:"02d" }}
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="experience-stack">
+                {% for experience in experiences %}
+
+                {% include "includes/about/experience_card.html" %}
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
