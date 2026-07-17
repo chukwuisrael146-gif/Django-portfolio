@@ -1,0 +1,123 @@
+.techstack-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, .04);
+
+    backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition:
+
+        transform .5s,
+
+        border-color .5s,
+
+        box-shadow .5s;
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+}
+
+.techstack-card.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.techstack-card:hover {
+
+    transform:
+
+        translateY(-12px) rotate(.5deg);
+
+    border-color: #f97316;
+
+    box-shadow:
+
+        0 30px 80px rgba(249, 115, 22, .18);
+
+}
+
+.tech-glow {
+
+    position: absolute;
+
+    top: -100px;
+
+    right: -100px;
+
+    width: 220px;
+
+    height: 220px;
+
+    background: radial-gradient(circle,
+
+            rgba(249, 115, 22, .25),
+
+            transparent 70%);
+
+    opacity: 0;
+
+    transition: .5s;
+
+}
+
+.techstack-card:hover .tech-glow {
+
+    opacity: 1;
+
+}
+
+.icon-wrapper {
+
+    transition: .5s;
+
+}
+
+.techstack-card:hover .icon-wrapper {
+
+    transform:
+
+        scale(1.15) rotate(12deg);
+
+    background: rgba(249, 115, 22, .12);
+
+}
+
+.techstack-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 35px;
+
+    bottom: 90px;
+
+    width: 0;
+
+    height: 3px;
+
+    background: #f97316;
+
+    transition: .5s;
+
+}
+
+.techstack-card:hover::before {
+
+    width: 90px;
+
+}

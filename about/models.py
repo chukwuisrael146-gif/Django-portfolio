@@ -249,3 +249,16 @@ class SocialLink(models.Model):
     def __str__(self):
         return self.get_platform_display()
     
+class TechStack(models.Model):
+    name = models.CharField(max_length=100)
+    icon = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    description = models.TextField(blank=True, default="")
+    featured = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
+
+    def __str__(self):
+        return self.name

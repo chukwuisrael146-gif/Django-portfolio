@@ -1,5 +1,156 @@
-<section id="tech-stack" class="py-40">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <h2 class="text-5xl font-bold">Tech Stack</h2>
+<section id="techstack" class="relative overflow-hidden py-40">
+
+    <!-- Background Typography -->
+
+    <h2
+        class="pointer-events-none
+        absolute
+        left-1/2
+        top-8
+        -translate-x-1/2
+        text-[10rem]
+        md:text-[15rem]
+        font-black
+        uppercase
+        text-white/[0.02]">
+
+        STACK
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mx-auto mb-24 max-w-3xl text-center">
+
+            <p
+                class="font-semibold
+                uppercase
+                tracking-[6px]
+                text-orange-500">
+
+                Chapter 04
+
+            </p>
+
+            <h2
+                class="mt-6
+                text-5xl
+                font-black
+                lg:text-6xl">
+
+                Tech Stack
+
+            </h2>
+
+            <p
+                class="mt-8
+                leading-8
+                text-gray-400">
+
+                The technologies I use to transform ideas into
+                scalable, modern, and high-performance applications.
+
+            </p>
+
+        </div>
+
+        <!-- Bento Grid -->
+
+        <div class="grid grid-cols-12 gap-6">
+
+            {% for tech in tech_stack %}
+
+            <div
+
+                class="techstack-card group
+
+                {% if tech.featured %}
+
+                    col-span-12 lg:col-span-6 row-span-2 min-h-[360px]
+
+                {% else %}
+
+                    col-span-12 sm:col-span-6 lg:col-span-3 min-h-[220px]
+
+                {% endif %}"
+
+                style="animation-delay:{{ forloop.counter0|add:'1' }}00ms">
+
+                <div class="tech-glow"></div>
+
+                <div class="relative z-10 h-full flex flex-col justify-between">
+
+                    <div>
+
+                        <div
+                            class="icon-wrapper
+                            mb-8
+                            flex
+                            h-16
+                            w-16
+                            items-center
+                            justify-center
+                            rounded-2xl
+                            bg-white/5">
+
+                            <i class="{{ tech.icon }} text-3xl"></i>
+
+                        </div>
+
+                        <h3 class="text-3xl font-bold">
+
+                            {{ tech.name }}
+
+                        </h3>
+
+                        {% if tech.description %}
+
+                        <p class="mt-5 text-gray-400 leading-8">
+
+                            {{ tech.description }}
+
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="flex items-center justify-between">
+
+                        <span
+                            class="rounded-full
+                            bg-orange-500/10
+                            px-4
+                            py-2
+                            text-xs
+                            uppercase
+                            tracking-[0.35em]
+                            text-orange-400">
+
+                            {{ tech.category }}
+
+                        </span>
+
+                        <i
+                            class="fa-solid fa-arrow-up-right-from-square
+                            text-gray-500
+                            transition
+                            duration-500
+                            group-hover:text-orange-400">
+                        </i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
     </div>
+
 </section>

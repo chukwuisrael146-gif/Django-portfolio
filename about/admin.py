@@ -10,6 +10,7 @@ from . models import (
     TechnologyCategory,
     FunFact,
     SocialLink,
+    TechStack,
 )
 
 # Register your models here.
@@ -114,6 +115,19 @@ class SocialLinkAdmin(admin.ModelAdmin):
     list_display = (
         'platform',
         'url',
+    )
+    
+    ordering = ('order',)
+    
+    
+@admin.register(TechStack)
+class TechStackAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'icon',
+        'category',
+        'featured',
+        'order',
     )
     
     ordering = ('order',)
