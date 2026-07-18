@@ -246,4 +246,233 @@
 
     left: 100%;
 
+
+}
+
+/* ==============================
+   Cinematic Overlay
+=================================*/
+
+.cta-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at center,
+
+            transparent 20%,
+
+            rgba(0, 0, 0, .35) 100%);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0;
+
+    transition: opacity .8s ease;
+
+}
+
+#about-cta.in-view .cta-overlay {
+
+    opacity: 1;
+
+}
+
+/* ==============================
+   Reveal Animation
+=================================*/
+
+.cta-reveal {
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+#about-cta.in-view .reveal-1 {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition-delay: .2s;
+
+}
+
+#about-cta.in-view .reveal-2 {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition-delay: .45s;
+
+}
+
+#about-cta.in-view .reveal-3 {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition-delay: .7s;
+
+}
+
+#about-cta.in-view .reveal-4 {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition-delay: 1s;
+
+}
+
+/* ==============================
+   Floating Card Effect
+=================================*/
+
+#about-cta .group {
+
+    transition:
+
+        transform .7s ease,
+
+        box-shadow .7s ease;
+
+}
+
+#about-cta.in-view .group {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 45px 120px rgba(0, 0, 0, .45),
+
+        0 0 80px rgba(249, 115, 22, .15);
+
+}
+
+/* ==============================
+   Orange Glow
+=================================*/
+
+#about-cta.in-view .cta-orb {
+
+    opacity: .55;
+
+}
+
+/* ==============================
+   Floating Animation
+=================================*/
+
+@keyframes floatSlow {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-18px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.cta-orb {
+
+    animation: floatSlow 8s ease-in-out infinite;
+
+}
+
+.cta-ring {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 550px;
+
+    height: 550px;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(249, 115, 22, .08);
+
+    border-radius: 50%;
+
+    animation: rotateRing 30s linear infinite;
+
+    pointer-events: none;
+
+}
+
+.cta-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 35px;
+
+    border: 1px dashed rgba(249, 115, 22, .08);
+
+    border-radius: 50%;
+
+}
+
+.cta-ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 90px;
+
+    border: 1px solid rgba(255, 255, 255, .05);
+
+    border-radius: 50%;
+
+}
+
+@keyframes rotateRing {
+
+    from {
+
+        transform: translate(-50%, -50%) rotate(0deg);
+
+    }
+
+    to {
+
+        transform: translate(-50%, -50%) rotate(360deg);
+
+    }
+
 }
