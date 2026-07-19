@@ -1,17 +1,39 @@
 from django.db import models
 
+
 class Skill(models.Model):
+
+    CATEGORY_CHOICES = [
+        ("Backend", "Backend"),
+        ("Frontend", "Frontend"),
+        ("Database", "Database"),
+        ("Tools", "Tools"),
+        ("Design", "Design"),
+    ]
+
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="skills/")
-    percentage = models.PositiveIntegerField()
+
+    icon = models.CharField(max_length=100)
+
+    category = models.CharField(
+        max_length=30,
+        choices=CATEGORY_CHOICES
+    )
+
+    percentage = models.PositiveIntegerField(default=80)
+
+    years_of_experience = models.PositiveIntegerField(default=1)
+
+    projects = models.PositiveIntegerField(default=0)
+
     description = models.TextField(blank=True)
+
     featured = models.BooleanField(default=False)
 
-    class Meta:
-        ordering = ["-percentage"]
+    order = models.PositiveIntegerField(default=0)
 
-    def __str__(self):
-        return self.title
+    class Meta:
+        ordering = ["order"]
 
     @property
     def level(self):

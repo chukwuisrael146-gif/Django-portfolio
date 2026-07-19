@@ -155,12 +155,6 @@ class Certification(models.Model):
     def __str__(self):
         return self.title
     
-class TechnologyCategory(models.Model):
-    
-    name = models.CharField(max_length=80)
-
-    def __str__(self):
-        return self.name
     
 class TechnologyCategory(models.Model):
 

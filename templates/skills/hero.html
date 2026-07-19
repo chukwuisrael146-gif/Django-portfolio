@@ -1,0 +1,147 @@
+<section id="skills-hero" class="relative overflow-hidden py-40">
+
+    <!-- Background Glow -->
+
+    <div class="absolute -left-32 top-20 h-[450px] w-[450px] rounded-full bg-orange-500/10 blur-[150px]"></div>
+
+    <div class="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-[180px]"></div>
+
+    <!-- Background Word -->
+
+    <h2 class="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 text-[9rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
+
+        SKILLS
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <div class="grid items-center gap-20 lg:grid-cols-2">
+
+            <!-- LEFT -->
+
+            <div>
+
+                <span class="inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-400">
+
+                    <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+
+                    MY TOOLBOX
+
+                </span>
+
+                <h1 class="mt-8 text-5xl font-black leading-tight lg:text-7xl">
+
+                    Building Digital
+
+                    <span class="block text-orange-500">
+
+                        Experiences
+
+                    </span>
+
+                    With Modern Technologies
+
+                </h1>
+
+                <p class="mt-8 max-w-xl text-lg leading-9 text-gray-400">
+
+                    Every technology is a tool. Choosing the right one,
+                    combining it effectively, and delivering scalable
+                    solutions is what transforms ideas into products.
+
+                </p>
+
+                <div class="mt-12 flex flex-wrap gap-6">
+
+                    <a href="#featured-skills"
+                        class="group inline-flex items-center gap-4 rounded-full bg-orange-500 px-8 py-4 font-semibold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(249,115,22,.35)]">
+
+                        Explore Skills
+
+                        <i class="fa-solid fa-arrow-down transition duration-500 group-hover:translate-y-1"></i>
+
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-8 py-4 backdrop-blur-xl transition duration-500 hover:border-orange-500/40 hover:bg-white/10">
+
+                        View Projects
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="relative flex items-center justify-center">
+
+                <!-- Rotating Ring -->
+
+                <div class="skills-ring"></div>
+
+                <!-- Floating Cards -->
+
+                <div class="floating-icons">
+
+                    {% for skill in featured_skills|slice:":6" %}
+
+                    <div class="floating-card">
+
+                        <i class="{{ skill.icon }}"></i>
+
+                        <span>{{ skill.title }}</span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Stats -->
+
+        <div class="mt-28 grid gap-8 md:grid-cols-4">
+
+            <div class="stat-card">
+
+                <h3>{{ skills.count }}</h3>
+
+                <p>Technologies</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>{{ featured_skills.count }}</h3>
+
+                <p>Featured</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>{{ average_skill }}%</h3>
+
+                <p>Average Level</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>∞</h3>
+
+                <p>Learning Mindset</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

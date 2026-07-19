@@ -1,0 +1,157 @@
+{% load static %}
+
+<section id="skills-preview" class="relative overflow-hidden py-40">
+
+    <!-- Background Word -->
+
+    <h2 class="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 text-[10rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
+
+        SKILLS
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mx-auto max-w-3xl text-center">
+
+            <p class="font-semibold uppercase tracking-[6px] text-orange-500">
+
+                My Expertise
+
+            </p>
+
+            <h2 class="mt-6 text-5xl font-black lg:text-6xl">
+
+                Technologies I Use To Build
+                Modern Digital Experiences
+
+            </h2>
+
+            <p class="mt-8 leading-8 text-gray-400">
+
+                I enjoy transforming ideas into fast, scalable and
+                beautiful digital products using modern technologies.
+
+            </p>
+
+        </div>
+
+        <!-- Floating Skills -->
+
+        <div class="skills-floating mt-28">
+
+            {% for skill in featured_skills %}
+
+            <div
+
+                class="skill-bubble
+
+                {% if forloop.first %}
+
+                    skill-xl
+
+                {% elif forloop.counter == 2 %}
+
+                    skill-lg
+
+                {% elif forloop.counter == 3 %}
+
+                    skill-xl
+
+                {% elif forloop.counter == 4 %}
+
+                    skill-md
+
+                {% elif forloop.counter == 5 %}
+
+                    skill-md
+
+                {% else %}
+
+                    skill-sm
+
+                {% endif %}"
+
+                data-category="{{ skill.category }}">
+
+                <!-- Background Number -->
+
+                <span class="skill-number">
+
+                    {{ forloop.counter|stringformat:"02d" }}
+
+                </span>
+
+                <!-- Glow -->
+
+                <div class="skill-glow"></div>
+
+                <!-- Content -->
+
+                <div class="skill-content">
+
+                    <div class="skill-icon">
+
+                        <i class="{{ skill.icon }}"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+
+                            {{ skill.title }}
+
+                        </h3>
+
+                        <p>
+
+                            {{ skill.category }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Bottom -->
+
+                <div class="skill-footer">
+
+                    <span class="skill-level">
+
+                        {{ skill.level }}
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- CTA -->
+
+        <div class="mt-28 text-center">
+
+            <a href="{% url 'skills' %}"
+
+                class="group inline-flex items-center gap-4 rounded-full bg-orange-500 px-10 py-5 font-semibold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(249,115,22,.35)]">
+
+                View My Complete Skillset
+
+                <i class="fa-solid fa-arrow-right transition duration-500 group-hover:translate-x-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>

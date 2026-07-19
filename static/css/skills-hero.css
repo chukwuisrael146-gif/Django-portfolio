@@ -1,0 +1,231 @@
+/*==============================
+SKILLS HERO
+==============================*/
+
+#skills-hero {
+
+    position: relative;
+
+}
+
+.skills-ring {
+
+    width: 520px;
+
+    height: 520px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, .06);
+
+    position: absolute;
+
+    animation: rotateRing 28s linear infinite;
+
+}
+
+.skills-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 40px;
+
+    border: 1px dashed rgba(249, 115, 22, .12);
+
+    border-radius: 50%;
+
+}
+
+.skills-ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 90px;
+
+    border: 1px solid rgba(255, 255, 255, .05);
+
+    border-radius: 50%;
+
+}
+
+.floating-icons {
+
+    position: relative;
+
+    width: 520px;
+
+    height: 520px;
+
+}
+
+.floating-card {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px 22px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .45s;
+
+    animation: floatSkill 6s ease-in-out infinite;
+
+}
+
+.floating-card i {
+
+    font-size: 28px;
+
+    color: #f97316;
+
+}
+
+.floating-card span {
+
+    font-weight: 600;
+
+}
+
+.floating-card:hover {
+
+    transform: translateY(-10px) scale(1.05);
+
+    border-color: #f97316;
+
+    box-shadow: 0 20px 60px rgba(249, 115, 22, .25);
+
+}
+
+.floating-card:nth-child(1) {
+
+    top: 10%;
+
+    left: 35%;
+
+}
+
+.floating-card:nth-child(2) {
+
+    top: 30%;
+
+    left: 0;
+
+}
+
+.floating-card:nth-child(3) {
+
+    top: 30%;
+
+    right: 0;
+
+}
+
+.floating-card:nth-child(4) {
+
+    bottom: 22%;
+
+    left: 8%;
+
+}
+
+.floating-card:nth-child(5) {
+
+    bottom: 18%;
+
+    right: 8%;
+
+}
+
+.floating-card:nth-child(6) {
+
+    bottom: 0;
+
+    left: 36%;
+
+}
+
+.stat-card {
+
+    padding: 32px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    text-align: center;
+
+    transition: .4s;
+
+}
+
+.stat-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #f97316;
+
+}
+
+.stat-card h3 {
+
+    font-size: 3rem;
+
+    font-weight: 900;
+
+    color: #f97316;
+
+}
+
+.stat-card p {
+
+    margin-top: 10px;
+
+    color: #9ca3af;
+
+    text-transform: uppercase;
+
+    letter-spacing: .2em;
+
+    font-size: .8rem;
+
+}
+
+@keyframes rotateRing {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes floatSkill {
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
