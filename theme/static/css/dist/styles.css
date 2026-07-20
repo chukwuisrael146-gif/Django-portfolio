@@ -1138,13 +1138,6 @@ body {
   margin-top: 2rem;
 }
 
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
 .block {
   display: block;
 }
@@ -2076,10 +2069,6 @@ body {
   line-height: 1.25;
 }
 
-.leading-7 {
-  line-height: 1.75rem;
-}
-
 .tracking-\[0\.35em\] {
   letter-spacing: 0.35em;
 }
@@ -2114,10 +2103,6 @@ body {
 
 .tracking-wider {
   letter-spacing: 0.05em;
-}
-
-.tracking-\[0\.25em\] {
-  letter-spacing: 0.25em;
 }
 
 .text-black {

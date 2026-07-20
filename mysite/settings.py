@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'skills',
     'contact',
     'about',
+    'projects',
 ]
 
 INSTALLED_APPS += ["django_browser_reload"]
