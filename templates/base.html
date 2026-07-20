@@ -3,8 +3,8 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-viewport charset="UTF-8">
+    <meta-viewport name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
         {% block title %}
@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{% static 'css/about-cta.css' %}">
     <link rel="stylesheet" href="{% static 'css/home-skills.css' %}">
     <link rel="stylesheet" href="{% static 'css/skills-hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home-projects.css' %}">
 
     {% tailwind_css %}
 </head>
@@ -109,6 +110,8 @@
     <script defer src="{% static 'js/funfacts.js' %}"></script>
 
     <script defer src="{% static 'js/about-cta.js' %}"></script>
+
+    <script defer src="{% static 'js/home-projects.js' %}"></script>
 
 
     {% block scripts %}
