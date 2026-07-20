@@ -4,7 +4,8 @@
 
     <!-- Background Word -->
 
-    <h2 class="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 text-[10rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
+    <h2
+        class="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 text-[10rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
 
         SKILLS
 
@@ -40,117 +41,86 @@
 
         <!-- Floating Skills -->
 
-        <div class="skills-floating mt-28">
+        <div class="relative flex items-center justify-center">
 
-            {% for skill in featured_skills %}
+            <!-- Rotating Ring -->
 
-            <div
+            <div class="skills-ring"></div>
 
-                class="skill-bubble
+            <!-- Floating Cards -->
 
-                {% if forloop.first %}
+            <div class="floating-icons">
 
-                    skill-xl
+                {% for skill in featured_skills|slice:":6" %}
 
-                {% elif forloop.counter == 2 %}
+                <div class="floating-card">
 
-                    skill-lg
+                    <i class="{{ skill.icon }}"></i>
 
-                {% elif forloop.counter == 3 %}
-
-                    skill-xl
-
-                {% elif forloop.counter == 4 %}
-
-                    skill-md
-
-                {% elif forloop.counter == 5 %}
-
-                    skill-md
-
-                {% else %}
-
-                    skill-sm
-
-                {% endif %}"
-
-                data-category="{{ skill.category }}">
-
-                <!-- Background Number -->
-
-                <span class="skill-number">
-
-                    {{ forloop.counter|stringformat:"02d" }}
-
-                </span>
-
-                <!-- Glow -->
-
-                <div class="skill-glow"></div>
-
-                <!-- Content -->
-
-                <div class="skill-content">
-
-                    <div class="skill-icon">
-
-                        <i class="{{ skill.icon }}"></i>
-
-                    </div>
-
-                    <div>
-
-                        <h3>
-
-                            {{ skill.title }}
-
-                        </h3>
-
-                        <p>
-
-                            {{ skill.category }}
-
-                        </p>
-
-                    </div>
+                    <span>{{ skill.title }}</span>
 
                 </div>
 
-                <!-- Bottom -->
-
-                <div class="skill-footer">
-
-                    <span class="skill-level">
-
-                        {{ skill.level }}
-
-                    </span>
-
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                </div>
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- Stats -->
+
+    <div class="mt-28 grid gap-8 md:grid-cols-4">
+
+        <div class="stat-card">
+
+            <h3>{{ skills.count }}</h3>
+
+            <p>Technologies</p>
 
         </div>
 
-        <!-- CTA -->
+        <div class="stat-card">
 
-        <div class="mt-28 text-center">
+            <h3>{{ featured_skills.count }}</h3>
 
-            <a href="{% url 'skills' %}"
-
-                class="group inline-flex items-center gap-4 rounded-full bg-orange-500 px-10 py-5 font-semibold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(249,115,22,.35)]">
-
-                View My Complete Skillset
-
-                <i class="fa-solid fa-arrow-right transition duration-500 group-hover:translate-x-2"></i>
-
-            </a>
+            <p>Featured</p>
 
         </div>
+
+        <div class="stat-card">
+
+            <h3>{{ average_skill }}%</h3>
+
+            <p>Average Level</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>∞</h3>
+
+            <p>Learning Mindset</p>
+
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <div class="mt-28 text-center">
+
+        <a href="{% url 'skills' %}"
+            class="group inline-flex items-center gap-4 rounded-full bg-orange-500 px-10 py-5 font-semibold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(249,115,22,.35)]">
+
+            View My Complete Skillset
+
+            <i class="fa-solid fa-arrow-right transition duration-500 group-hover:translate-x-2"></i>
+
+        </a>
+
+    </div>
 
     </div>
 
