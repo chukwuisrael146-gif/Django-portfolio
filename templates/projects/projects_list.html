@@ -1,0 +1,630 @@
+{% extends "base.html" %}
+
+{% block title %}
+Projects | Israel Chukwu
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================================
+PROJECT HERO
+========================================================== -->
+
+<section class="relative overflow-hidden py-40">
+
+    <!-- Background Glow -->
+
+    <div class="absolute left-0 top-20 h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-[180px]"></div>
+
+    <div class="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-orange-400/10 blur-[180px]"></div>
+
+    <!-- Background Word -->
+
+    <h2
+        class="pointer-events-none absolute left-1/2 top-6 -translate-x-1/2 text-[10rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
+
+        PROJECTS
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <div class="grid items-center gap-20 lg:grid-cols-2">
+
+            <!-- LEFT CONTENT -->
+
+            <div>
+
+                <p class="font-semibold uppercase tracking-[6px] text-orange-500">
+
+                    My Portfolio
+
+                </p>
+
+                <h1 class="mt-6 text-5xl font-black leading-tight lg:text-7xl">
+
+                    Building
+                    <span class="text-orange-500">
+
+                        Modern
+
+                    </span>
+
+                    Digital Experiences
+
+                </h1>
+
+                <p class="mt-8 max-w-xl text-lg leading-9 text-gray-400">
+
+                    Every project is built with performance,
+                    scalability and user experience in mind.
+                    From Django applications to modern front-end
+                    interfaces, each one represents my passion
+                    for solving real-world problems.
+
+                </p>
+
+                <!-- Buttons -->
+
+                <div class="mt-12 flex flex-wrap gap-5">
+
+                    <a href="#projects-grid"
+                        class="group inline-flex items-center gap-3 rounded-full bg-orange-500 px-8 py-4 font-semibold transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,.35)]">
+
+                        Explore Projects
+
+                        <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-2"></i>
+
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 font-semibold backdrop-blur-xl transition duration-300 hover:border-orange-500 hover:bg-orange-500/10">
+
+                        Let's Work Together
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT STATS -->
+
+            <div class="grid grid-cols-2 gap-6">
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+
+                    <h2 class="text-5xl font-black text-orange-500">
+
+                        {{ projects|length }}
+
+                    </h2>
+
+                    <p class="mt-3 text-gray-400">
+
+                        Total Projects
+
+                    </p>
+
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+
+                    <h2 class="text-5xl font-black text-orange-500">
+
+                        {{ featured_projects|length }}
+
+                    </h2>
+
+                    <p class="mt-3 text-gray-400">
+
+                        Featured
+
+                    </p>
+
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+
+                    <h2 class="text-5xl font-black text-orange-500">
+
+                        {{ technologies_count }}
+
+                    </h2>
+
+                    <p class="mt-3 text-gray-400">
+
+                        Technologies
+
+                    </p>
+
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+
+                    <h2 class="text-5xl font-black text-orange-500">
+
+                        100%
+
+                    </h2>
+
+                    <p class="mt-3 text-gray-400">
+
+                        Passion
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+FEATURED PROJECT
+========================================================== -->
+
+{% if featured_projects %}
+
+{% with featured_projects.0 as project %}
+
+<section class="relative py-32">
+
+    <div class="mx-auto max-w-7xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mb-20 text-center">
+
+            <p class="uppercase tracking-[6px] text-orange-500 font-semibold">
+
+                Spotlight
+
+            </p>
+
+            <h2 class="mt-5 text-5xl lg:text-6xl font-black">
+
+                Featured Project
+
+            </h2>
+
+            <p class="mt-6 text-gray-400 max-w-3xl mx-auto leading-8">
+
+                A closer look at one of my favourite projects,
+                showcasing my approach to problem-solving,
+                architecture and user experience.
+
+            </p>
+
+        </div>
+
+        <!-- Card -->
+
+        <div class="group overflow-hidden rounded-[36px] border border-white/10 bg-white/5 backdrop-blur-xl">
+
+            <div class="grid lg:grid-cols-2">
+
+                <!-- Image -->
+
+                <div class="relative overflow-hidden">
+
+                    <img src="{{ project.hero_image.url|default:project.thumbnail.url }}" alt="{{ project.title }}"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+                    </div>
+
+                    <span
+                        class="absolute left-8 top-8 rounded-full bg-orange-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em]">
+
+                        {{ project.category }}
+
+                    </span>
+
+                </div>
+
+                <!-- Content -->
+
+                <div class="flex flex-col justify-center p-10 lg:p-16">
+
+                    <h2 class="text-4xl lg:text-5xl font-black">
+
+                        {{ project.title }}
+
+                    </h2>
+
+                    <p class="mt-8 text-gray-400 leading-8">
+
+                        {{ project.description|truncatewords:45 }}
+
+                    </p>
+
+                    <!-- Technologies -->
+
+                    <div class="mt-10 flex flex-wrap gap-3">
+
+                        {% for tech in project.technologies.all %}
+
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm">
+
+                            <i class="{{ tech.icon }} text-orange-500"></i>
+
+                            {{ tech.name }}
+
+                        </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <div class="mt-12 flex flex-wrap gap-5">
+
+                        <a href="{% url 'project_detail' project.slug %}"
+                            class="group inline-flex items-center gap-3 rounded-full bg-orange-500 px-8 py-4 font-semibold transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,.35)]">
+
+                            View Case Study
+
+                            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-2"></i>
+
+                        </a>
+
+                        {% if project.live_url %}
+
+                        <a href="{{ project.live_url }}" target="_blank"
+                            class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:border-orange-500">
+
+                            Live Demo
+
+                        </a>
+
+                        {% endif %}
+
+                        {% if project.github_url %}
+
+                        <a href="{{ project.github_url }}" target="_blank"
+                            class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:border-orange-500">
+
+                            GitHub
+
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endwith %}
+
+{% endif %}
+
+<!-- ==========================================================
+PROJECTS GRID
+========================================================== -->
+
+<section id="projects-grid" class="relative py-40">
+
+    <div class="mx-auto max-w-7xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mb-20 text-center">
+
+            <p class="uppercase tracking-[6px] text-orange-500 font-semibold">
+
+                Portfolio
+
+            </p>
+
+            <h2 class="mt-5 text-5xl lg:text-6xl font-black">
+
+                Explore My Work
+
+            </h2>
+
+            <p class="mt-8 max-w-3xl mx-auto text-gray-400 leading-8">
+
+                Every project represents a unique challenge,
+                combining clean architecture, thoughtful design,
+                and modern technologies to deliver impactful solutions.
+
+            </p>
+
+        </div>
+
+        <!-- Bento Grid -->
+
+        <div class="projects-grid">
+
+            {% for project in projects %}
+
+            <article class="project-card
+
+                {% if forloop.counter == 1 %}
+                    project-large
+                {% elif forloop.counter|divisibleby:5 %}
+                    project-wide
+                {% elif forloop.counter|divisibleby:3 %}
+                    project-tall
+                {% endif %}">
+
+                <!-- Image -->
+
+                <div class="project-image">
+
+                    <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}">
+
+                </div>
+
+                <!-- Overlay -->
+
+                <div class="project-overlay">
+
+                    <span class="project-category">
+
+                        {{ project.category }}
+
+                    </span>
+
+                    <h3>
+
+                        {{ project.title }}
+
+                    </h3>
+
+                    <p>
+
+                        {{ project.short_description }}
+
+                    </p>
+
+                    <!-- Tech -->
+
+                    <div class="project-tech">
+
+                        {% for tech in project.technologies.all|slice:":4" %}
+
+                        <span>
+
+                            <i class="{{ tech.icon }}"></i>
+
+                            {{ tech.name }}
+
+                        </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <div class="project-actions">
+
+                        <a href="{% url 'project_detail' project.slug %}">
+
+                            Case Study
+
+                        </a>
+
+                        {% if project.github_url %}
+
+                        <a href="{{ project.github_url }}" target="_blank">
+
+                            GitHub
+
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+PROJECT CTA
+========================================================== -->
+
+<section class="magnetic" class=" project-cta group relative overflow-hidden py-40">
+
+    <div class="cta-particles">
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+    </div>
+
+    <div id="cta-spotlight"></div>
+
+    <!-- Background Glow -->
+
+    <div
+        class="absolute left-1/2 top-1/2 h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/10 blur-[180px]">
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <div
+            class="group relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-10 backdrop-blur-2xl lg:p-20">
+
+            <!-- Decorative Background Word -->
+
+            <h2 class="pointer-events-none absolute right-8 top-0 text-[8rem] font-black uppercase text-white/[0.03]">
+
+                CREATE
+
+            </h2>
+
+            <!-- Floating Glow -->
+
+            <div
+                class="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-orange-500/10 blur-[140px] transition duration-700 group-hover:scale-125">
+
+            </div>
+
+            <div class="relative z-10 mx-auto max-w-4xl text-center">
+
+                <span
+                    class="inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/10 px-6 py-2 text-sm font-semibold uppercase tracking-[0.35em] text-orange-400">
+
+                    Ready To Collaborate?
+
+                </span>
+
+                <h2 class="mt-8 text-5xl font-black leading-tight lg:text-7xl">
+
+                    Let's Build Something
+
+                    <span class="text-orange-500">
+
+                        Exceptional
+
+                    </span>
+
+                </h2>
+
+                <p class="mx-auto mt-8 max-w-3xl text-lg leading-9 text-gray-400">
+
+                    Whether you need a modern Django application,
+                    an elegant portfolio, an internal management system,
+                    or a scalable web platform, I'd love to help transform
+                    your ideas into a polished digital product.
+
+                </p>
+
+                <!-- CTA Buttons -->
+
+                <div class="mt-14 flex flex-wrap items-center justify-center gap-6">
+
+
+
+                    <a href="#"
+                        class="group inline-flex items-center gap-4 rounded-full bg-orange-500 px-10 py-5 font-semibold transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(249,115,22,.35)]">
+
+                        Start a Project
+
+                        <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-2"></i>
+
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-10 py-5 font-semibold backdrop-blur-xl transition-all duration-500 hover:border-orange-500 hover:bg-orange-500/10">
+
+                        Contact Me
+
+                    </a>
+
+                </div>
+
+                <!-- Bottom Stats -->
+
+                <div class="mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-10 md:grid-cols-4">
+
+                    <div>
+
+                        <h3 class="text-3xl font-black text-orange-500">
+
+                            {{ projects|length }}+
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+
+                            Projects
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-3xl font-black text-orange-500">
+
+                            {{ technologies_count }}
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+
+                            Technologies
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-3xl font-black text-orange-500">
+
+                            100%
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+
+                            Commitment
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-3xl font-black text-orange-500">
+
+                            ∞
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-gray-500">
+
+                            Curiosity
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

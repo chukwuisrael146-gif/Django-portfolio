@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import get_object_or_404, render
 
-from .models import Project
+from .models import Project, Technology
 
 
 def project_list(request):
@@ -22,11 +22,12 @@ def project_list(request):
     context = {
         "projects": projects,
         "featured_projects": featured_projects,
+        "technologies_count": Technology.objects.count(),
     }
 
     return render(
         request,
-        "projects/project_list.html",
+        "projects/projects_list.html",
         context,
     )
 
@@ -59,6 +60,6 @@ def project_detail(request, slug):
 
     return render(
         request,
-        "projects/project_detail.html",
+        "projects/projects_detail.html",
         context,
     )

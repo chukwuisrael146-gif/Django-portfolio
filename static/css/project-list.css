@@ -1,0 +1,513 @@
+/* ==============================
+   FEATURED PROJECT
+============================== */
+
+.featured-project img {
+
+    transition: transform .8s;
+
+}
+
+.featured-project:hover img {
+
+    transform: scale(1.05);
+
+}
+
+.featured-project {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.featured-project::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -30%;
+
+    background:
+
+        radial-gradient(circle,
+
+            rgba(249, 115, 22, .08),
+
+            transparent 70%);
+
+    opacity: 0;
+
+    transition: .6s;
+
+}
+
+.featured-project:hover::before {
+
+    opacity: 1;
+
+}
+
+/* =====================================================
+PROJECT GRID
+===================================================== */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    grid-auto-rows: 340px;
+
+    gap: 30px;
+
+}
+
+.project-large {
+
+    grid-column: span 2;
+
+    grid-row: span 2;
+
+}
+
+.project-wide {
+
+    grid-column: span 2;
+
+}
+
+.project-tall {
+
+    grid-row: span 2;
+
+}
+
+.project-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background: #1b1d21;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .5s;
+
+    cursor: pointer;
+
+}
+
+.project-card:hover {
+
+    transform: translateY(-12px);
+
+    border-color: #f97316;
+
+    box-shadow:
+
+        0 30px 80px rgba(249, 115, 22, .18);
+
+}
+
+.project-image {
+
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+.project-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .8s;
+
+}
+
+.project-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+.project-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    background:
+
+        linear-gradient(to top,
+
+            rgba(0, 0, 0, .92),
+
+            rgba(0, 0, 0, .25),
+
+            transparent);
+
+    opacity: 0;
+
+    transition: .45s;
+
+}
+
+.project-card:hover .project-overlay {
+
+    opacity: 1;
+
+}
+
+.project-category {
+
+    display: inline-flex;
+
+    align-self: flex-start;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(249, 115, 22, .12);
+
+    color: #fb923c;
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+}
+
+.project-overlay h3 {
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+}
+
+.project-overlay p {
+
+    color: #c4c4c4;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+.project-tech {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+.project-tech span {
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .08);
+
+    font-size: .85rem;
+
+}
+
+.project-actions {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+.project-actions a {
+
+    padding: 12px 22px;
+
+    border-radius: 999px;
+
+    background: #f97316;
+
+    color: white;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+    text-decoration: none;
+
+}
+
+.project-actions a:last-child {
+
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, .15);
+
+}
+
+.project-actions a:hover {
+
+    transform: translateY(-3px);
+
+}
+
+@media(max-width:1024px) {
+
+    .project-large,
+
+    .project-wide,
+
+    .project-tall {
+
+        grid-column: span 1;
+
+        grid-row: span 1;
+
+    }
+
+}
+
+/* ======================================================
+PROJECT CTA
+====================================================== */
+
+.group:hover {
+
+    transition: all .6s ease;
+
+}
+
+.group:hover .fa-arrow-right {
+
+    transform: translateX(8px);
+
+}
+
+.group::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -40%;
+
+    background:
+
+        radial-gradient(circle,
+
+            rgba(249, 115, 22, .08),
+
+            transparent 65%);
+
+    opacity: 0;
+
+    transition: .8s;
+
+    pointer-events: none;
+
+}
+
+.group:hover::before {
+
+    opacity: 1;
+
+}
+
+.group::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+
+    left: -40%;
+
+    width: 40%;
+
+    height: 320%;
+
+    background:
+
+        linear-gradient(90deg,
+
+            transparent,
+
+            rgba(255, 255, 255, .12),
+
+            transparent);
+
+    transform: rotate(25deg);
+
+    transition: 1s;
+
+}
+
+.group:hover::after {
+
+    left: 140%;
+
+}
+
+/* ============================
+CTA Spotlight
+============================ */
+
+#cta-spotlight {
+
+    position: absolute;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(circle,
+
+            rgba(249, 115, 22, .18),
+
+            transparent 70%);
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+
+    transition: opacity .3s;
+
+    filter: blur(15px);
+
+}
+
+.cta-particles span {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #f97316;
+
+    opacity: .25;
+
+    animation: particle 12s linear infinite;
+
+}
+
+.cta-particles span:nth-child(1) {
+
+    left: 10%;
+
+    animation-delay: 0s;
+
+}
+
+.cta-particles span:nth-child(2) {
+
+    left: 30%;
+
+    animation-delay: 2s;
+
+}
+
+.cta-particles span:nth-child(3) {
+
+    left: 50%;
+
+    animation-delay: 4s;
+
+}
+
+.cta-particles span:nth-child(4) {
+
+    left: 70%;
+
+    animation-delay: 6s;
+
+}
+
+.cta-particles span:nth-child(5) {
+
+    left: 85%;
+
+    animation-delay: 8s;
+
+}
+
+.cta-particles span:nth-child(6) {
+
+    left: 95%;
+
+    animation-delay: 10s;
+
+}
+
+@keyframes particle {
+
+    0% {
+
+        transform: translateY(120px) scale(.3);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: .35;
+
+    }
+
+    100% {
+
+        transform: translateY(-450px) scale(1);
+
+        opacity: 0;
+
+    }
+
+}
