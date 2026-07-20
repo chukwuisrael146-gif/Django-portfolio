@@ -93,6 +93,11 @@ class Project(models.Model):
         default="Personal Project"
     )
     
+    featured = models.BooleanField(
+        default=False,
+        help_text="Display this project on the homepage."
+    )
+    
     class Meta:
         ordering = ['order', "-completed_date"]
 

@@ -38,35 +38,58 @@ class TechnologyAdmin(admin.ModelAdmin):
 # Gallery Inline
 # ===========================
 
-class ProjectImageInline(admin.TabularInline):
+class ProjectImageInline(admin.StackedInline):
 
     model = ProjectImage
 
     extra = 1
 
+    ordering = ("order",)
+
+    classes = ("collapse",)
+
     fields = (
         "image",
+        "image_preview",
         "caption",
         "order",
     )
+
+    readonly_fields = (
+        "image_preview",
+    )
+
+    def image_preview(self, obj):
+
+        if obj.pk and obj.image:
+
+            return format_html(
+                '<img src="{}" width="300" style="border-radius:16px;border:1px solid #ddd;">',
+                obj.image.url
+            )
+
+        return "Upload an image first."
+
+    image_preview.short_description = "Preview"
 
 
 # ===========================
 # Features Inline
 # ===========================
 
-class ProjectFeatureInline(admin.TabularInline):
+class ProjectFeatureInline(admin.StackedInline):
 
     model = ProjectFeature
 
     extra = 1
+
+    classes = ("collapse",)
 
     fields = (
         "icon",
         "title",
         "description",
     )
-
 
 # ===========================
 # Project
@@ -91,16 +114,23 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = (
         "featured",
         "category",
+        "technologies",
         "completed_date",
+    )
+    
+    list_editable = (
+        "featured",
     )
 
     search_fields = (
         "title",
         "client",
         "short_description",
+        "description",
     )
 
     ordering = (
+        "-featured",
         "order",
         "-completed_date",
     )
@@ -165,14 +195,11 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
 
         ("Links", {
-
+            "classes": ("collapse",),
             "fields": (
-
                 "github_url",
                 "live_url",
-
             )
-
         }),
 
         ("Technology Stack", {
@@ -216,13 +243,23 @@ class ProjectAdmin(admin.ModelAdmin):
         if obj.thumbnail:
 
             return format_html(
-
-                '<img src="{}" width="350" style="border-radius:18px;">',
-
-                obj.thumbnail.url
-
+                """
+                <div style="
+                    display:inline-block;
+                    padding:12px;
+                    border-radius:18px;
+                    background:#111827;
+                ">
+                    <img
+                        src="{}"
+                        width="420"
+                        style="
+                            border-radius:14px;
+                            display:block;
+                        ">
+                </div>
+                """,
+                obj.thumbnail.url,
             )
 
-        return "No Image"
-
-    thumbnail_preview_large.short_description = "Thumbnail Preview"
+        return "No thumbnail uploaded."
