@@ -391,7 +391,122 @@ PROJECT GALLERY
 
 </section>
 
-<!-- Development Process -->
+<!-- ==========================================================
+DEVELOPMENT PROCESS
+========================================================== -->
+
+<section class="relative overflow-hidden py-32">
+
+    <!-- Background -->
+
+    <h2 class="pointer-events-none
+        absolute
+        left-1/2
+        top-0
+        -translate-x-1/2
+        text-[9rem]
+        lg:text-[13rem]
+        font-black
+        uppercase
+        text-white/[0.02]">
+
+        PROCESS
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-6xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mx-auto mb-24 max-w-3xl text-center">
+
+            <p class="uppercase tracking-[6px] text-orange-500 font-semibold">
+
+                Development Journey
+
+            </p>
+
+            <h2 class="mt-6 text-5xl lg:text-6xl font-black">
+
+                From Idea To Launch
+
+            </h2>
+
+            <p class="mt-8 leading-8 text-gray-400">
+
+                Every successful application follows a structured
+                development process. These are the major stages
+                that brought this project to life.
+
+            </p>
+
+        </div>
+
+        <!-- Timeline -->
+
+        <div class="relative">
+
+            <!-- Vertical Line -->
+
+            <div class="absolute left-8 top-0 h-full w-[2px] bg-white/10 lg:left-1/2 lg:-translate-x-1/2"></div>
+
+            {% for stage in project.timeline.all %}
+
+            <div class="timeline-stage mb-20 flex items-center
+                {% cycle 'lg:flex-row' 'lg:flex-row-reverse' %}">
+
+                <!-- Content -->
+
+                <div class="w-full lg:w-1/2
+                    {% cycle 'lg:pr-16 lg:text-right' 'lg:pl-16' %}">
+
+                    <div class="process-card">
+
+                        <div class="process-icon">
+
+                            <i class="{{ stage.icon }}"></i>
+
+                        </div>
+
+                        <h3>
+
+                            {{ stage.title }}
+
+                        </h3>
+
+                        <p>
+
+                            {{ stage.description }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Timeline Node -->
+
+                <div class="relative z-20 hidden lg:flex h-16 w-16 items-center justify-center rounded-full border border-orange-500/30 bg-[#17181c]">
+
+                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white">
+
+                        {{ forloop.counter }}
+
+                    </div>
+
+                </div>
+
+                <div class="hidden lg:block w-1/2"></div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- Tech Stack -->
 

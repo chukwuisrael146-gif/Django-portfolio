@@ -6,12 +6,13 @@ from .models import (
     Project,
     ProjectImage,
     ProjectFeature,
+    DevelopmentStage,
 )
 
 
-# ===========================
-# Technology
-# ===========================
+# =====================================================
+# TECHNOLOGY
+# =====================================================
 
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
@@ -25,78 +26,52 @@ class TechnologyAdmin(admin.ModelAdmin):
         "name",
     )
 
+    ordering = (
+        "name",
+    )
+
     def icon_preview(self, obj):
         return format_html(
-            '<i class="{}" style="font-size:22px;color:#f97316;"></i>',
+            '<i class="{}" style="font-size:20px;color:#f97316;"></i>',
             obj.icon
         )
 
     icon_preview.short_description = "Icon"
 
 
-# ===========================
-# Gallery Inline
-# ===========================
+# =====================================================
+# INLINES
+# =====================================================
 
-class ProjectImageInline(admin.StackedInline):
+class ProjectImageInline(admin.TabularInline):
 
     model = ProjectImage
-
     extra = 1
-
     ordering = ("order",)
 
-    classes = ("collapse",)
 
-    fields = (
-        "image",
-        "image_preview",
-        "caption",
-        "order",
-    )
-
-    readonly_fields = (
-        "image_preview",
-    )
-
-    def image_preview(self, obj):
-
-        if obj.pk and obj.image:
-
-            return format_html(
-                '<img src="{}" width="300" style="border-radius:16px;border:1px solid #ddd;">',
-                obj.image.url
-            )
-
-        return "Upload an image first."
-
-    image_preview.short_description = "Preview"
-
-
-# ===========================
-# Features Inline
-# ===========================
-
-class ProjectFeatureInline(admin.StackedInline):
+class ProjectFeatureInline(admin.TabularInline):
 
     model = ProjectFeature
-
     extra = 1
+    ordering = ("order",)
 
-    classes = ("collapse",)
 
-    fields = (
-        "icon",
-        "title",
-        "description",
-    )
+class DevelopmentStageInline(admin.TabularInline):
 
-# ===========================
-# Project
-# ===========================
+    model = DevelopmentStage
+    extra = 1
+    ordering = ("order",)
+
+
+# =====================================================
+# PROJECT
+# =====================================================
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+
+    save_on_top = True
 
     prepopulated_fields = {
         "slug": ("title",)
@@ -106,6 +81,7 @@ class ProjectAdmin(admin.ModelAdmin):
         "thumbnail_preview",
         "title",
         "category",
+        "colored_status",
         "client",
         "featured",
         "completed_date",
@@ -113,11 +89,12 @@ class ProjectAdmin(admin.ModelAdmin):
 
     list_filter = (
         "featured",
+        "status",
         "category",
         "technologies",
         "completed_date",
     )
-    
+
     list_editable = (
         "featured",
     )
@@ -125,8 +102,11 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = (
         "title",
         "client",
+        "role",
         "short_description",
         "description",
+        "challenge",
+        "solution",
     )
 
     ordering = (
@@ -134,6 +114,10 @@ class ProjectAdmin(admin.ModelAdmin):
         "order",
         "-completed_date",
     )
+
+    list_per_page = 15
+
+    date_hierarchy = "completed_date"
 
     filter_horizontal = (
         "technologies",
@@ -152,6 +136,7 @@ class ProjectAdmin(admin.ModelAdmin):
                 "title",
                 "slug",
                 "category",
+                "status",
                 "featured",
 
             )
@@ -170,7 +155,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
         }),
 
-        ("Content", {
+        ("Project Content", {
 
             "fields": (
 
@@ -181,25 +166,48 @@ class ProjectAdmin(admin.ModelAdmin):
 
         }),
 
-        ("Project Details", {
+        ("Case Study", {
+
+            "classes": ("wide",),
+
+            "fields": (
+
+                "challenge",
+                "solution",
+                "outcome",
+                "lessons_learned",
+
+            )
+
+        }),
+
+        ("Project Information", {
 
             "fields": (
 
                 "client",
+                "role",
+                "team_size",
                 "duration",
                 "completed_date",
+                "version",
                 "order",
 
             )
 
         }),
 
-        ("Links", {
+        ("Project Statistics", {
+
             "classes": ("collapse",),
+
             "fields": (
-                "github_url",
-                "live_url",
+
+                "lines_of_code",
+                "commits",
+
             )
+
         }),
 
         ("Technology Stack", {
@@ -207,6 +215,31 @@ class ProjectAdmin(admin.ModelAdmin):
             "fields": (
 
                 "technologies",
+
+            )
+
+        }),
+
+        ("Links", {
+
+            "classes": ("collapse",),
+
+            "fields": (
+
+                "github_url",
+                "live_url",
+
+            )
+
+        }),
+
+        ("SEO", {
+
+            "classes": ("collapse",),
+
+            "fields": (
+
+                "meta_description",
 
             )
 
@@ -220,6 +253,8 @@ class ProjectAdmin(admin.ModelAdmin):
 
         ProjectFeatureInline,
 
+        DevelopmentStageInline,
+
     ]
 
     def thumbnail_preview(self, obj):
@@ -228,7 +263,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
             return format_html(
 
-                '<img src="{}" width="70" style="border-radius:10px;">',
+                '<img src="{}" width="70" height="50" style="object-fit:cover;border-radius:10px;">',
 
                 obj.thumbnail.url
 
@@ -246,20 +281,59 @@ class ProjectAdmin(admin.ModelAdmin):
                 """
                 <div style="
                     display:inline-block;
-                    padding:12px;
+                    padding:15px;
                     border-radius:18px;
                     background:#111827;
                 ">
+
                     <img
                         src="{}"
                         width="420"
                         style="
                             border-radius:14px;
                             display:block;
+                            object-fit:cover;
                         ">
+
                 </div>
                 """,
                 obj.thumbnail.url,
             )
 
         return "No thumbnail uploaded."
+
+    thumbnail_preview_large.short_description = "Thumbnail Preview"
+
+    def colored_status(self, obj):
+
+        colors = {
+
+            "Planning": "#3b82f6",
+
+            "In Progress": "#f59e0b",
+
+            "Completed": "#10b981",
+
+            "Archived": "#6b7280",
+
+        }
+
+        color = colors.get(obj.status, "#6b7280")
+
+        return format_html(
+            """
+            <span style="
+                background:{};
+                color:white;
+                padding:5px 12px;
+                border-radius:999px;
+                font-size:12px;
+                font-weight:600;">
+                {}
+            </span>
+            """,
+            color,
+            obj.status,
+        )
+
+    colored_status.short_description = "Status"
