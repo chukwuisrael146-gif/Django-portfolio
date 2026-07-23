@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ project.title }} | Israel Chukwu
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================================
+PROJECT HERO
+========================================================== -->
+
+<section class="relative overflow-hidden py-36">
+
+    <!-- Background Glow -->
+
+    <div class="absolute left-0 top-20 h-[450px] w-[450px] rounded-full bg-orange-500/10 blur-[180px]"></div>
+
+    <div class="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-orange-400/10 blur-[180px]"></div>
+
+    <!-- Background Word -->
+
+    <h2 class="pointer-events-none absolute left-1/2 top-5 -translate-x-1/2 text-[10rem] md:text-[15rem] font-black uppercase text-white/[0.02]">
+
+        PROJECT
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <!-- Back -->
+
+        <a href="{% url 'projects' %}"
+
+            class="inline-flex items-center gap-3 text-gray-400 transition hover:text-orange-500">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Projects
+
+        </a>
+
+        <div class="mt-10 grid gap-16 lg:grid-cols-2 items-center">
+
+            <!-- Left -->
+
+            <div>
+
+                <!-- Badges -->
+
+                <div class="flex flex-wrap gap-3">
+
+                    {% if project.featured %}
+
+                    <span class="rounded-full bg-orange-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em]">
+
+                        Featured
+
+                    </span>
+
+                    {% endif %}
+
+                    <span class="rounded-full border border-green-500/30 bg-green-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-green-400">
+
+                        {{ project.status }}
+
+                    </span>
+
+                    {% if project.completed_date %}
+
+                    <span class="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs uppercase">
+
+                        {{ project.completed_date|date:"Y" }}
+
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- Title -->
+
+                <h1 class="mt-8 text-5xl font-black leading-tight lg:text-7xl">
+
+                    {{ project.title }}
+
+                </h1>
+
+                <!-- Subtitle -->
+
+                <p class="mt-8 text-lg leading-9 text-gray-400">
+
+                    {{ project.short_description }}
+
+                </p>
+
+                <!-- Technologies -->
+
+                <div class="mt-10 flex flex-wrap gap-3">
+
+                    {% for tech in project.technologies.all %}
+
+                    <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3">
+
+                        <i class="{{ tech.icon }} text-orange-500"></i>
+
+                        {{ tech.name }}
+
+                    </span>
+
+                    {% endfor %}
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="mt-12 flex flex-wrap gap-5">
+
+                    {% if project.live_url %}
+
+                    <a href="{{ project.live_url }}"
+
+                        target="_blank"
+
+                        class="inline-flex items-center gap-3 rounded-full bg-orange-500 px-8 py-4 font-semibold transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(249,115,22,.35)]">
+
+                        Live Demo
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </a>
+
+                    {% endif %}
+
+                    {% if project.github_url %}
+
+                    <a href="{{ project.github_url }}"
+
+                        target="_blank"
+
+                        class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 font-semibold backdrop-blur-xl transition hover:border-orange-500">
+
+                        GitHub
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+
+            <div>
+
+                <div class="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl">
+
+                    <img
+
+                        src="{{ project.hero_image.url|default:project.thumbnail.url }}"
+
+                        alt="{{ project.title }}"
+
+                        class="h-full w-full object-cover transition duration-700 hover:scale-105">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+PROJECT OVERVIEW
+========================================================== -->
+
+<section class="relative py-32">
+
+    <!-- Background -->
+
+    <h2 class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 text-[9rem] lg:text-[13rem] font-black uppercase text-white/[0.02]">
+
+        STORY
+
+    </h2>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6">
+
+        <!-- Heading -->
+
+        <div class="mx-auto mb-20 max-w-3xl text-center">
+
+            <p class="uppercase tracking-[6px] text-orange-500 font-semibold">
+
+                Case Study
+
+            </p>
+
+            <h2 class="mt-6 text-5xl lg:text-6xl font-black">
+
+                Project Overview
+
+            </h2>
+
+            <p class="mt-8 leading-8 text-gray-400">
+
+                Every successful product starts with a challenge.
+                Here's how this project evolved from an idea into
+                a complete solution.
+
+            </p>
+
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-3">
+
+            <!-- Challenge -->
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                </div>
+
+                <h3>
+
+                    The Challenge
+
+                </h3>
+
+                <p>
+
+                    {{ project.challenge }}
+
+                </p>
+
+            </div>
+
+            <!-- Solution -->
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+                <h3>
+
+                    The Solution
+
+                </h3>
+
+                <p>
+
+                    {{ project.solution }}
+
+                </p>
+
+            </div>
+
+            <!-- Outcome -->
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <h3>
+
+                    The Outcome
+
+                </h3>
+
+                <p>
+
+                    {{ project.outcome }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+PROJECT GALLERY
+========================================================== -->
+
+<section class="relative py-32 overflow-hidden">
+
+    <h2 class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 text-[9rem] lg:text-[13rem] font-black uppercase text-white/[0.02]">
+
+        GALLERY
+
+    </h2>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+
+        <div class="max-w-3xl mx-auto text-center mb-20">
+
+            <p class="uppercase tracking-[6px] text-orange-500 font-semibold">
+
+                Screenshots
+
+            </p>
+
+            <h2 class="mt-6 text-5xl lg:text-6xl font-black">
+
+                Project Gallery
+
+            </h2>
+
+            <p class="mt-8 text-gray-400 leading-8">
+
+                Explore different parts of the application through
+                carefully selected screenshots.
+
+            </p>
+
+        </div>
+
+        <!-- Main Image -->
+
+        <div class="gallery-preview">
+
+            {% if project.gallery.first %}
+
+            <img
+
+                id="gallery-main"
+
+                src="{{ project.gallery.first.image.url }}"
+
+                alt="{{ project.title }}">
+
+            {% else %}
+
+            <img
+
+                id="gallery-main"
+
+                src="{{ project.thumbnail.url }}"
+
+                alt="{{ project.title }}">
+
+            {% endif %}
+
+        </div>
+
+        <!-- Thumbnails -->
+
+        <div class="gallery-thumbnails">
+
+            {% for image in project.gallery.all %}
+
+            <button
+
+                class="gallery-thumb {% if forloop.first %}active{% endif %}"
+
+                data-image="{{ image.image.url }}">
+
+                <img
+
+                    src="{{ image.image.url }}"
+
+                    alt="{{ image.caption }}">
+
+            </button>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Development Process -->
+
+<!-- Tech Stack -->
+
+<!-- Features -->
+
+<!-- Related Projects -->
+
+<!-- Next Project -->
+
+{% endblock %}

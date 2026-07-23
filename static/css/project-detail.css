@@ -1,0 +1,257 @@
+/* ===========================================
+PROJECT HERO
+=========================================== */
+
+.project-hero-image {
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+}
+
+.project-hero-image img {
+
+    transition: transform .8s;
+
+}
+
+.project-hero-image:hover img {
+
+    transform: scale(1.05);
+
+}
+
+.tech-badge {
+
+    transition: .35s;
+
+}
+
+.tech-badge:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #f97316;
+
+    background: rgba(249, 115, 22, .08);
+
+}
+
+.hero-button {
+
+    transition: .35s;
+
+}
+
+.hero-button:hover {
+
+    transform: translateY(-4px);
+
+}
+
+/* ===========================================
+PROJECT OVERVIEW
+=========================================== */
+
+.overview-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .45s;
+
+}
+
+.overview-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: #f97316;
+
+    box-shadow:
+
+        0 25px 60px rgba(249, 115, 22, .15);
+
+}
+
+.overview-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+
+    right: -80px;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(249, 115, 22, .08);
+
+    filter: blur(50px);
+
+    opacity: 0;
+
+    transition: .45s;
+
+}
+
+.overview-card:hover::before {
+
+    opacity: 1;
+
+}
+
+.overview-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(249, 115, 22, .1);
+
+    color: #fb923c;
+
+    font-size: 1.6rem;
+
+    margin-bottom: 30px;
+
+}
+
+.overview-card h3 {
+
+    font-size: 1.8rem;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+}
+
+.overview-card p {
+
+    line-height: 1.9;
+
+    color: #bdbdbd;
+
+}
+
+/* ===========================================
+PROJECT GALLERY
+=========================================== */
+
+.gallery-preview {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(18px);
+
+}
+
+.gallery-preview img {
+
+    width: 100%;
+
+    display: block;
+
+    transition: .6s;
+
+    cursor: pointer;
+
+}
+
+.gallery-preview:hover img {
+
+    transform: scale(1.02);
+
+}
+
+.gallery-thumbnails {
+
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+    gap: 20px;
+
+}
+
+.gallery-thumb {
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 2px solid transparent;
+
+    background: none;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+}
+
+.gallery-thumb img {
+
+    width: 100%;
+
+    height: 100px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+.gallery-thumb:hover {
+
+    transform: translateY(-6px);
+
+}
+
+.gallery-thumb.active {
+
+    border-color: #f97316;
+
+    box-shadow:
+
+        0 0 30px rgba(249, 115, 22, .3);
+
+}
