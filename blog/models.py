@@ -23,6 +23,8 @@ class BlogPost(models.Model):
         default="Development"
     )
     
+    context = models.TextField()
+    
     reading_time = models.PositiveBigIntegerField(default=5)
 
     status = models.CharField(
