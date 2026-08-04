@@ -29,7 +29,7 @@ urlpatterns = [
     # path("", include("base.urls")),
     path("skills/", include("skills.urls")),
     path("projects/", include("projects.urls")),
-    # path("blog/", include("blog.urls")),
+    path("blog/", include(("blog.urls", "blog"), namespace="blog")),
     # path("contact/", include("contact.urls")),
 ]
 
